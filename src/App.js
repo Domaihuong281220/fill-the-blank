@@ -2,7 +2,7 @@
 import React from "react";
 import DragAndDrop from "./DragAndDrop";
 import AnimatedCursor from "react-animated-cursor"
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import DragAndDropVer2 from "./DragAndDropVer2";
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
       {/* <DragAndDrop /> */}
       <Router>
         <Routes>
+          <Route path="/" element={<Navigate to="/version1" />} />
           <Route exact path="/version1" element={<DragAndDrop />} />
           <Route exact path="/version2" element={<DragAndDropVer2 />} />
         </Routes>
