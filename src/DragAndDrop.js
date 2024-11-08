@@ -150,30 +150,67 @@ const DragAndDrop = () => {
                     />
                 ))}
             </div>
+            <button className="submitBtn" onClick={handleSubmit}>
+                <span>Submit</span>
+                <svg width="15px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                </svg>
+            </button>
             <div className="submit-container">
-                <button className="submitBtn" onClick={handleSubmit}>
-                    <span>Submit</span>
-                    <svg width="15px" height="10px" viewBox="0 0 13 10">
-                        <path d="M1,5 L11,5"></path>
-                        <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                </button>
+                <ul class="example-2">
+                    <li class="icon-content">
+                        <a
+                            data-social="linkedin"
+                            aria-label="LinkedIn"
+                            href="https://www.linkedin.com/in/maihuong652/"
+                        >
+                            <div class="filled"></div>
+                            <svg
+                                viewBox="0 0 16 16"
+                                class="bi bi-linkedin"
+                                fill="currentColor"
+                                height="16"
+                                width="16"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    fill="currentColor"
+                                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+                                ></path>
+                            </svg>
+                        </a>
+                        <div class="tooltip">LinkedIn</div>
+                    </li>
+                    <li class="icon-content">
+                        <a data-social="github" aria-label="GitHub" href="https://github.com/Domaihuong281220/fill-the-blank">
+                            <div class="filled"></div>
+                            <svg
+                                viewBox="0 0 16 16"
+                                class="bi bi-github"
+                                fill="currentColor"
+                                height="16"
+                                width="16"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    fill="currentColor"
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+                                ></path>
+                            </svg>
+                        </a>
+                        <div class="tooltip">GitHub</div>
+                    </li>
+                </ul>
 
-                <button class="gitBtn">
-                    <a href="https://github.com/Domaihuong281220/fill-the-blank">
-                        <svg width="40" height="40" fill="#0092E4" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24" id="github">
-                            <path d="M12,2.2467A10.00042,10.00042,0,0,0,8.83752,21.73419c.5.08752.6875-.21247.6875-.475,0-.23749-.01251-1.025-.01251-1.86249C7,19.85919,6.35,18.78423,6.15,18.22173A3.636,3.636,0,0,0,5.125,16.8092c-.35-.1875-.85-.65-.01251-.66248A2.00117,2.00117,0,0,1,6.65,17.17169a2.13742,2.13742,0,0,0,2.91248.825A2.10376,2.10376,0,0,1,10.2,16.65923c-2.225-.25-4.55-1.11254-4.55-4.9375a3.89187,3.89187,0,0,1,1.025-2.6875,3.59373,3.59373,0,0,1,.1-2.65s.83747-.26251,2.75,1.025a9.42747,9.42747,0,0,1,5,0c1.91248-1.3,2.75-1.025,2.75-1.025a3.59323,3.59323,0,0,1,.1,2.65,3.869,3.869,0,0,1,1.025,2.6875c0,3.83747-2.33752,4.6875-4.5625,4.9375a2.36814,2.36814,0,0,1,.675,1.85c0,1.33752-.01251,2.41248-.01251,2.75,0,.26251.1875.575.6875.475A10.0053,10.0053,0,0,0,12,2.2467Z"></path>
-                        </svg>
-                    </a>
-                </button>
-                </div>
+
+            </div>
 
             {isSubmitted && (
                 <ResultsSummary
                     feedback={feedback}
                     correctCount={correctCount}
-                    onContinue={() => 
-                    {
+                    onContinue={() => {
                         setIsSubmitted(false);
                         resetBlanks();
                     }
@@ -233,7 +270,7 @@ const ResultsSummary = ({ feedback, correctCount, onContinue }) => (
                 <button className="btn btn__continue" onClick={onContinue}>Continue</button>
             </div>
 
-            
+
         </div>
     </div>
 );
