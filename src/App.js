@@ -2,6 +2,8 @@
 import React from "react";
 import DragAndDrop from "./DragAndDrop";
 import AnimatedCursor from "react-animated-cursor"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import DragAndDropVer2 from "./DragAndDropVer2";
 
 function App() {
   return (
@@ -21,7 +23,13 @@ function App() {
           backgroundColor: 'var(--cursor-color)'
         }}
       />
-      <DragAndDrop />
+      {/* <DragAndDrop /> */}
+      <Router>
+        <Routes>
+          <Route exact path="/version1" element={<DragAndDrop />} />
+          <Route exact path="/version2" element={<DragAndDropVer2 />} />
+        </Routes>
+        </Router>
     </div>
   );
 }
