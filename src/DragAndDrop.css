@@ -16,12 +16,17 @@
 
 h2 {
   color: #ffffff;
+  font-size: 7vw;
+  margin: 0;
 }
 
 #question-text {
   margin: 20px 0;
   font-size: 1.2em;
   color: #ffffff;
+  text-align: start;
+  line-height: 14vw;
+  margin:0 5vw;
 }
 
 .sentence-container {
@@ -139,7 +144,7 @@ button:hover {
   transition: all 0.3s ease;
 }
 
-.submitBtn span{
+.submitBtn span {
   position: relative;
   font-family: "Ubuntu", sans-serif;
   font-size: 18px;
@@ -148,7 +153,7 @@ button:hover {
   color: #234567;
 }
 
-.submitBtn svg{
+.submitBtn svg {
   position: relative;
   top: 0;
   margin-left: 10px;
@@ -161,7 +166,7 @@ button:hover {
   transition: all 0.3s ease;
 }
 
-.submitBtn:hover:before{
+.submitBtn:hover:before {
   width: 100%;
   background: #b1dae7;
 }
@@ -170,7 +175,7 @@ button:hover {
   transform: translateX(0);
 }
 
-.submitBtn:active{
+.submitBtn:active {
   transform: scale(0.95);
 }
 
@@ -202,6 +207,7 @@ button:hover {
   border-radius: 100%;
   box-shadow: inset 0px 0px 10px 0px rgb(240, 237, 237);
 }
+
 /* 
 #feedback {
   margin-top: 15px;
@@ -209,7 +215,7 @@ button:hover {
 } */
 
 
-/* From Uiverse.io by sabbircoder07 */ 
+/* From Uiverse.io by sabbircoder07 */
 .results-summary-container {
   position: absolute;
   font-family: "Hanken Grotesk", sans-serif;
@@ -281,26 +287,27 @@ button:hover {
   border-radius: 30px;
   background-image: linear-gradient(to bottom, #734b6d, #42275a);
   animation: gradient 9s infinite alternate linear;
-  .result-box {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  background-image: linear-gradient(-45deg, #ef629f, #42275a);
-  background-color: #56ab2f;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  animation: gradient 9s linear infinite;
-}
 
-.result {
-  margin-top: -8px;
-  font-size: 16px;
-  font-weight: 400;
-  color: hsl(241, 100%, 89%);
-}
+  .result-box {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-image: linear-gradient(-45deg, #ef629f, #42275a);
+    background-color: #56ab2f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    animation: gradient 9s linear infinite;
+  }
+
+  .result {
+    margin-top: -8px;
+    font-size: 16px;
+    font-weight: 400;
+    color: hsl(241, 100%, 89%);
+  }
 }
 
 .btn {
@@ -536,9 +543,10 @@ button:hover {
   }
 }
 
-/* From Uiverse.io by Zameerahmad01 */ 
+/* From Uiverse.io by Zameerahmad01 */
 ul {
   list-style: none;
+  padding: 0;
 }
 
 .example-2 {
@@ -548,12 +556,15 @@ ul {
   flex-direction: column;
   row-gap: 0.5rem;
 }
+
 .example-2 .icon-content {
   margin: 0 10px;
   position: relative;
 }
+
 .example-2 .icon-content .tooltip {
   position: absolute;
+  z-index: 0;
   top: 20px;
   left: 40%;
   transform: translateX(50%);
@@ -565,11 +576,13 @@ ul {
   font-size: 14px;
   transition: all 0.3s ease;
 }
+
 .example-2 .icon-content:hover .tooltip {
   opacity: 1;
   visibility: visible;
   top: 5px;
 }
+
 .example-2 .icon-content a {
   position: relative;
   overflow: hidden;
@@ -583,20 +596,25 @@ ul {
   background-color: #fff;
   transition: all 0.3s ease-in-out;
 }
+
 .example-2 .icon-content a:hover {
   box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
 }
+
 .example-2 .icon-content a svg {
   position: relative;
-  z-index: 1;
+  z-index: 0;
   width: 30px;
   height: 30px;
 }
+
 .example-2 .icon-content a:hover {
   color: white;
 }
+
 .example-2 .icon-content a .filled {
   position: absolute;
+  z-index: 0;
   top: auto;
   bottom: 0;
   left: 0;
@@ -605,32 +623,45 @@ ul {
   background-color: #000;
   transition: all 0.3s ease-in-out;
 }
+
 .example-2 .icon-content a:hover .filled {
   height: 100%;
 }
 
 .example-2 .icon-content a[data-social="linkedin"] .filled,
-.example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
+.example-2 .icon-content a[data-social="linkedin"]~.tooltip {
   background-color: #0274b3;
 }
 
 .example-2 .icon-content a[data-social="github"] .filled,
-.example-2 .icon-content a[data-social="github"] ~ .tooltip {
+.example-2 .icon-content a[data-social="github"]~.tooltip {
   background-color: #24262a;
 }
+
 .example-2 .icon-content a[data-social="instagram"] .filled,
-.example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
-  background: linear-gradient(
-    45deg,
-    #405de6,
-    #5b51db,
-    #b33ab4,
-    #c135b4,
-    #e1306c,
-    #fd1f1f
-  );
+.example-2 .icon-content a[data-social="instagram"]~.tooltip {
+  background: linear-gradient(45deg,
+      #405de6,
+      #5b51db,
+      #b33ab4,
+      #c135b4,
+      #e1306c,
+      #fd1f1f);
 }
+
 .example-2 .icon-content a[data-social="youtube"] .filled,
-.example-2 .icon-content a[data-social="youtube"] ~ .tooltip {
+.example-2 .icon-content a[data-social="youtube"]~.tooltip {
   background-color: #ff0000;
+}
+
+/* mobile screen */
+@media (max-width: 600px) {
+  #draggable-words {
+      display: grid;
+      /* 2 columns */
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
 }
