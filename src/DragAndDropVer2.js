@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./DragAndDrop.css";
 
 const DragAndDropVer2 = () => {
+    // State hooks to manage the data and UI states
     const [blanks, setBlanks] = useState([]);
     const [dragWords, setDragWords] = useState([]);
     const [initialDragWords, setInitialDragWords] = useState([]);
@@ -9,6 +10,7 @@ const DragAndDropVer2 = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [correctCount, setCorrectCount] = useState(0);
 
+    // Fetch question data when the component is mounted
     useEffect(() => {
         fetch("https://nodejsvercel-git-main-domaihuong281220s-projects.vercel.app/api/exercise")
             .then(response => response.json())
@@ -21,27 +23,29 @@ const DragAndDropVer2 = () => {
             .catch(error => console.error("Error fetching data:", error));
     }, []);
 
+    // Handle the drag start event
     const handleDragStart = (e, word) => {
         e.dataTransfer.setData("text/plain", word);
     };
 
+    // Handle the drop event when a word is dropped into a blank
     const handleDrop = (e, blankId) => {
         e.preventDefault();
         const newWord = e.dataTransfer.getData("text");
 
-        // Define the allowed words for each blank
+        // Define allowed words for each blank
         const allowedWords = {
             1: "blue", // Blank 1 can only accept "blue"
             2: "green" // Blank 2 can only accept "green"
         };
 
-        // Check if the word matches the allowed word for the specific blank
+        // Check if the dropped word matches the allowed word for the blank
         if (newWord !== allowedWords[blankId]) {
             console.log(`Only the word "${allowedWords[blankId]}" can be placed here.`);
             return; // Exit if the word is not allowed
         }
 
-        // Get the previous word for the blank
+        // Get the previous word for the blank (if any)
         const previousWord = blanks.find(blank => blank.id === blankId)?.userAnswer;
 
         // Update blanks with the new word
@@ -62,7 +66,7 @@ const DragAndDropVer2 = () => {
         });
     };
 
-
+    // Handle the submission of the answers
     const handleSubmit = () => {
         const answers = blanks.map(blank => blank.userAnswer);
 
@@ -80,12 +84,14 @@ const DragAndDropVer2 = () => {
             .catch(error => console.error("Error submitting data:", error));
     };
 
+    // Handle the read aloud feature (synthesizing speech)
     const handleReadAloud = () => {
         const sentence = `The sky is ${blanks[0]?.userAnswer || "blank"} and the grass is ${blanks[1]?.userAnswer || "blank"}.`;
         const utterance = new SpeechSynthesisUtterance(sentence);
         speechSynthesis.speak(utterance);
     };
 
+    // Reset the blanks and restore any removed words
     const resetBlanks = () => {
         let wordsAddedBack = false;
 
@@ -97,6 +103,7 @@ const DragAndDropVer2 = () => {
             if (!wordsAddedBack && wordsToReturn.length > 0) {
                 wordsAddedBack = true;
 
+                // Add the words back to the draggable words list
                 setDragWords(prevWords => {
                     const wordsData = wordsToReturn.map(word =>
                         initialDragWords.find(item => item.word === word)
@@ -105,10 +112,10 @@ const DragAndDropVer2 = () => {
                 });
             }
 
+            // Reset all blanks to their initial empty state
             return prevBlanks.map(blank => ({ ...blank, userAnswer: "" }));
         });
     };
-
 
     return (
         <div className="container">
@@ -128,7 +135,7 @@ const DragAndDropVer2 = () => {
                         onDrop={handleDrop}
                     />.
                 </p>
-                <button className="readBtn" onClick={handleReadAloud} />
+                <button className="readBtn" onClick={handleReadAloud}></button>
             </div>
             <div id="draggable-words">
                 {dragWords.map(word => (
@@ -147,9 +154,6 @@ const DragAndDropVer2 = () => {
                     <polyline points="8 1 12 5 8 9"></polyline>
                 </svg>
             </button>
-            <div className="submit-container">
-                {/* Social media icons and links */}
-            </div>
 
             {isSubmitted && (
                 <ResultsSummary
@@ -165,6 +169,7 @@ const DragAndDropVer2 = () => {
     );
 };
 
+// Blank component to display the blank spaces in the sentence
 const Blank = ({ id, userAnswer, onDrop }) => (
     <span
         className="blank"
@@ -175,6 +180,7 @@ const Blank = ({ id, userAnswer, onDrop }) => (
     </span>
 );
 
+// Draggable word component for each draggable item
 const DraggableWord = ({ word, color, onDragStart }) => (
     <div
         className={`draggable ${color === "red" ? "red" : ""}`}
@@ -185,6 +191,7 @@ const DraggableWord = ({ word, color, onDragStart }) => (
     </div>
 );
 
+// Results summary after submitting answers
 const ResultsSummary = ({ feedback, correctCount, onContinue }) => (
     <div className="results-summary-container">
         {feedback === "Correct!" && (

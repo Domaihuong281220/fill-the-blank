@@ -208,14 +208,6 @@ button:hover {
   box-shadow: inset 0px 0px 10px 0px rgb(240, 237, 237);
 }
 
-/* 
-#feedback {
-  margin-top: 15px;
-  font-weight: bold;
-} */
-
-
-/* From Uiverse.io by sabbircoder07 */
 .results-summary-container {
   position: absolute;
   font-family: "Hanken Grotesk", sans-serif;
@@ -543,7 +535,6 @@ button:hover {
   }
 }
 
-/* From Uiverse.io by Zameerahmad01 */
 ul {
   list-style: none;
   padding: 0;
